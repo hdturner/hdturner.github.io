@@ -8,7 +8,7 @@ This is my school account.
 This repository will hold assignments, etc.
 
 ## **Podcasts I listen to**
-	1. This week in tech
+	1. This Week In Tech
 	2. Intelligent machines
 	3. Windows Weekly
 
