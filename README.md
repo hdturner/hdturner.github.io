@@ -13,5 +13,6 @@ This repository will hold assignments, etc.
 	3. Windows Weekly
 
 ## **Interesting Websites**
-	[Reddit] (https://www.reddit.com) Great source for human curated content on just about any subject matter.
+	[Reddit](https://www.reddit.com) Great source for human curated content on just about any subject matter.
+	[Udemy](https://www.udemy.com). Where I go to work on and study for new certifications
 
