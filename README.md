@@ -10,5 +10,5 @@ This repository will hold assignments, etc.
 	Intelligent machines
 
 ## **Interesting Websites**
-	-[Reddit] (https://www.reddit.com) Great source for human curated content on just about any subject matter
+	-[Reddit] (https://www.reddit.com) Great source for human curated content on just about any subject matter.
 
