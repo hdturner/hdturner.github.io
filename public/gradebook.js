@@ -7,37 +7,37 @@
  */
 function fetchGradeData() {
     // Log to console to indicate the start of data fetching
-    [cite_start]console.log("Fetching grade data..."); [cite: 4]
+    console.log("Fetching grade data...");
 
     // Create a new XMLHttpRequest object for HTTP communication
-    [cite_start]let xhr = new XMLHttpRequest(); [cite: 5]
+    let xhr = new XMLHttpRequest();
 
     // Define the API route on the server to request grade data from
-    [cite_start]let apiRoute = "/api/grades"; [cite: 6]
+    let apiRoute = "/api/grades";
 
     // Set up the event handler for when the request's state changes
-    [cite_start]xhr.onreadystatechange = function() { [cite: 7]
+    xhr.onreadystatechange = function() {
         let results;
 
         // Check if the request is complete (DONE state)
-        [cite_start]if (xhr.readyState === xhr.DONE) { [cite: 8]
+        if (xhr.readyState === xhr.DONE) {
             // Check if the HTTP status is not 200 (meaning an error occurred)
-            [cite_start]if (xhr.status !== 200) { [cite: 8]
+            if (xhr.status !== 200) {
                 // Log an error message to the console if data could not be retrieved
-                console.error("Could not get grades. Status: " + xhr.status); [cite_start]// This line is not directly cited but is a logical part of the error handling from [cite: 8]
+                console.error("Could not get grades. Status: " + xhr.status);
             } else {
                 // If successful (status is 200), parse the JSON response text
                 // and pass the resulting data to the populateGradebook function
-                [cite_start]populateGradebook(JSON.parse(xhr.responseText)); [cite: 8]
+                populateGradebook(JSON.parse(xhr.responseText));
             }
         }
-    }.bind(this); [cite_start]// The .bind(this) ensures 'this' context if needed elsewhere, though less critical here. [cite: 7]
+    }.bind(this);
 
     // Open the HTTP request: GET method, specified API route, asynchronous (true)
-    [cite_start]xhr.open("get", apiRoute, true); [cite: 8]
+    xhr.open("get", apiRoute, true);
 
     // Send the request to the server
-    [cite_start]xhr.send(); [cite: 8]
+    xhr.send();
 }
 
 /**
@@ -47,10 +47,10 @@ function fetchGradeData() {
  */
 function populateGradebook(data) {
     // Log the data being used to populate the gradebook for debugging purposes
-    [cite_start]console.log("Populating gradebook with data:", data); [cite: 9]
+    console.log("Populating gradebook with data:", data);
 
     // Get a reference to the HTML table element by its ID "gradebook"
-    [cite_start]let tableElm = document.getElementById("gradebook"); [cite: 10]
+    let tableElm = document.getElementById("gradebook");
 
     // Optional: Clear any existing rows in the table before adding new data.
     // This is good practice to prevent duplicate entries if the function is called multiple times.
@@ -59,34 +59,34 @@ function populateGradebook(data) {
     }
 
     // Iterate over each 'assignment' (representing a row of grade data) in the 'data' array
-    [cite_start]data.forEach(function(assignment) { [cite: 10]
+    data.forEach(function(assignment) {
         // Create a new table row (<tr>) element for each assignment
-        [cite_start]let row = document.createElement("tr"); [cite: 10]
+        let row = document.createElement("tr");
 
         // Create an object to hold the table data columns for readability
-        let columns = {}; // This is a helper variable, not directly cited for its existence but for its use below.
+        let columns = {};
 
         // Create the first table data cell (<td>) for the student's name
-        [cite_start]columns.name = document.createElement('td'); [cite: 10]
+        columns.name = document.createElement('td');
         // Concatenate last_name and first_name, then create a text node and append to the 'name' td
         columns.name.appendChild(
-            [cite_start]document.createTextNode(assignment.last_name + "," + assignment.first_name) [cite: 10]
+            document.createTextNode(assignment.last_name + "," + assignment.first_name)
         );
 
         // Create the second table data cell (<td>) for the total grade
-        [cite_start]columns.grade = document.createElement('td'); [cite: 10]
+        columns.grade = document.createElement('td');
         // Create a text node for the total_grade and append to the 'grade' td
         columns.grade.appendChild(
-            [cite_start]document.createTextNode(assignment.total_grade) [cite: 11]
+            document.createTextNode(assignment.total_grade)
         );
 
         // Append the 'name' column (<td>) to the table row (<tr>)
-        [cite_start]row.appendChild(columns.name); [cite: 11]
+        row.appendChild(columns.name);
         // Append the 'grade' column (<td>) to the table row (<tr>)
-        [cite_start]row.appendChild(columns.grade); [cite: 11]
+        row.appendChild(columns.grade);
 
         // Append the completed row (<tr>) to the gradebook table element, making it visible
-        [cite_start]tableElm.appendChild(row); [cite: 11]
+        tableElm.appendChild(row);
     });
 }
 
